@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SPS Game</title>
+    </head>
+    <body>
+        <p>Stone Paper Scissors Game</p>
+        <button
+        onclick=" 
+        const computerMove = pickCompMove();
+
+        let result1 = '';
+        if (computerMove === 'Stone'){
+            result1 = 'Tie';
+        }
+        else if (computerMove === 'Paper'){
+            result1 = 'You lose';
+        }
+        else if (computerMove === 'Scissors'){
+            result1 = 'You win';
+        }
+        alert(`You picked Stone... Computer picked ${computerMove}. ${result1}`);
+        
+        "> Stone </button>
+
+        <button
+        onclick="
+        const computerMovee = pickCompMove();
+
+        let result2 = '';
+        if (computerMovee === 'Stone'){
+            result2 = 'You win';
+        }
+        else if (computerMovee === 'Paper'){
+            result2 = 'Tie';
+        }
+        else if (computerMovee === 'Scissors'){
+            result2 = 'You lose';
+        }
+        alert(`You picked Paper... Computer picked ${computerMovee}. ${result2}`);
+        "> Paper </button>
+
+        <button
+        onclick="
+        const computerMove3 = pickCompMove();
+
+        let result3 = '';
+
+        if (computerMove3 === 'Stone'){
+            result3 = 'You Lose';          
+        }
+        else if (computerMove3 === 'Paper'){
+            result3 = 'You Win' ;           
+        }
+        else if (computerMove3 === 'Scissors'){
+            result3 = 'Tie' ;          
+        }
+        alert(`You picked Scissors... Computer picked ${computerMove3}. ${result3}`);
+        "
+        > Scissors </button>
+
+        <script>
+        
+           function pickCompMove(){
+                const randomNumber1 = Math.random();
+                let computerMove = '';
+            
+            if (randomNumber1 >= 0 && randomNumber1 <= 1/3){
+                computerMove = 'Stone';}
+            else if (randomNumber1 >=1/3 && randomNumber1 <= 2/3 ){
+                computerMove = 'Paper';}
+            else if (randomNumber1 >= 2/3 && randomNumber1 <= 1){
+                computerMove = 'Scissors';}
+                return computerMove;
+            }
+
+        </script>
+
+    </body>
+
+</html>
