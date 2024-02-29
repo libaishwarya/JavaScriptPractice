@@ -1,61 +1,61 @@
-const { PassThrough } = require("stream");
-
 const store_items = {
-    phone : 300,
-    laptop :200,
-    watch : 100
+    phone: 305,
+    laptop: 323,
+    watch: 164
 };
 
-console.log(store_items)
-
-function totalCostOfItem(){
-    let allItemCost = 0
-    for (const key in store_items){
-        allItemCost +=store_items[key]
+function totalCostOfItem() {
+    let itemCost = 0;
+    for (const key in store_items) {
+        itemCost += store_items[key];
     }
-
-    return allItemCost}
-console.log(totalCostOfItem())
+    return itemCost;
+}
 
 let user_list = [];
-function ifKeyExists(item){
+
+function ifKeyExists(item) {
     let input_item = item;
-    if (store_items.hasOwnProperty(input_item)){
-        // console.log("key exists")
-        user_list.push({key: item, pricee: store_items[item]});
-    }
-    else{
-        console.log("key does not exits")
+    if (store_items.hasOwnProperty(input_item)) {
+        user_list.push({ key: item, pricee: store_items[item] });
+    } else {
+        console.log("item does not exist");
     }
     return user_list;
 }
 
-function calculateUserList(){
+function calculateUserList() {
     let cart_amount = 0;
-    user_list.forEach(item =>{
-        cart_amount = cart_amount+ item.pricee ;
+    user_list.forEach(item => {
+        cart_amount += item.pricee;
     });
     return cart_amount;
 }
- 
-function payCash(amt){
-    if(amt>400){
-        console.log("10% off available")
-    }
-    else{
-        console.log("no offer")
-    }    
+
+function discount(amount) {
+    const tenPercent = amount * 0.1;
+    console.log("Discounted amount is", tenPercent);
+    return tenPercent;
 }
-// ifKeyExists("phone");
+
+function payCash(amount, dis) {
+    let discount_amount = 0;
+    if (amount > 400) {
+        console.log("10% off available");
+        discount_amount = amount - dis;
+        console.log("Amount to be paid is:", discount_amount);
+    } else {
+        console.log("No offer available");
+    }
+    return discount_amount;
+}
+
+ifKeyExists("phone");
 ifKeyExists("laptop");
+ifKeyExists("watch");
 
-// ifKeyExists("lapto");
-console.log(user_list)
-
-console.log(calculateUserList())
-amont = calculateUserList()
-payCash(amont)
-
-
-
+console.log(user_list);
+const totalAmount = calculateUserList();
+const dis = discount(totalAmount);
+console.log(payCash(totalAmount, dis));
 
