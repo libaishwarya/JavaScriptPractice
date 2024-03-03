@@ -8,8 +8,8 @@ const promise = new Promise((resolve, reject) => {
   });
   
 promise.then((message) => {
-    console.log("Success:", message); // Log the success message
+    console.log("Success:", message); 
 }).catch((error) => {
-    console.error("Error:", error); // Log the error message
+    console.error("Error:", error); 
 });
 
